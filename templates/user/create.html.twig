@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block stylesheet %}
+<style>
+    form {
+          margin-left: 10%;
+          width:50%;
+    }
+</style>
+{% endblock %}
+                
+{% block body %}
+    <h1>Créer votre compte</h1>
+
+    {{ form_start(createForm) }}
+        {{ form_row(createForm.pseudo) }}
+        {{ form_row(createForm.email) }}
+        {{ form_row(createForm.plainPassword) }}
+        {{ form_row(createForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-dark text-white">Enregistrer</button>
+    {{ form_end(createForm) }}
+{% endblock %}

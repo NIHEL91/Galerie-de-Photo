@@ -1,0 +1,16 @@
+#carouselExampleControls{
+    position:relative;
+    margin:0 auto;
+    width:1400px;
+    height:300px;
+}
+.carousel-item {
+    display:block;
+    width:849px;
+    height:300px;
+    position:relative;
+}
+.d-block  {
+    width: 1400px;
+    height: 300px;
+}

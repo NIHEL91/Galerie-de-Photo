@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}Review Photo!{% endblock %}
+        </title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+                    <!--feuilles de style-->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> 
+                   <!---fichier JS-->
+        <script src="{{ asset('assets/jscript/bootstrap.bundle.min.js') }}" defer></script> 
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+        <script src="{{ asset('assets/jscript/script.js') }}" defer></script> 
+        <link href="assets/css/headers.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <nav class=" navbar navbar-expand-lg   fixed-top ">
+            <img src="../../images/logo1.png" class="img" alt="">
+            <ul class="nav col-lg-auto me-lg-auto   justify-content-center justify-content-md-between ">
+                <li><a href="{{ path("photo.accueil") }}" class="nav-link  px-5 "><h4>Accueil</h4></a></li>
+                <li><a href="{{ path("photo.list") }}" class="nav-link  px-5 "><h4>Galerie</h4></a></li>
+                <li><a href="#" class="nav-link px-5 "><h4>Favoris</h4></a></li>
+                <li><a href="#" class="nav-link px-2  "><h4>Contact</h4></a></li>
+                <li><a href="{{ path('photo.manage')}}" class="nav-link px-5 "><h4>Gérer vos photos</h4></a></li>
+            </ul> 
+         
+            {% block connexion %}
+                {% if not app.user %}
+                    <a type="button" class="btn btn-outline-dark me-2" href="{{ path("user.login") }}">Connexion</a>
+                    <a type="button" class="btn btn-warning" href="{{ path("user.create") }}">Compte</a>
+                {% else %}
+                    <div>
+                        <a type="button" class="btn btn-outline-dark me-2" href="{{ path("user.logout") }}">Déconnexion</a>
+                    </div>    
+                    <div>
+                        <h5>Date : {{ "now"|date("d/m/Y") }}</h5>
+                    </div>
+                    <span class="mr-5 mb-2"> <h3>Bienvenue : {{ app.user.pseudo }} </h3></span>
+                {% endif %}
+            {% endblock %}        
+        </nav>  
+    
+    
+        {% block body %}{% endblock %}
+    </body>
+    <footer>
+        <div class=" bg-dark text-white  p-4 mt-5 ">
+                <div class="row border-bottom pb-3">
+                    <div class="col-4" >
+                        <h2>Galerie Photo</h2>
+                        <p class="text-white">Créer un Compte</p>
+                        <input type="mail" name="mail" placeholder="Adresse mail" class=""> 
+                    </div>
+                    <div class="col-4">
+                        <h5>BESOIN D'AIDE</h5>
+                        <a href="" class="text-white p-2" target="_self">Nous contacter</a>
+                        <br>
+                        <a href="" class="text-white p-2" target="_self">Questions fréquentes</a>
+                        <br>
+                    </div>
+                </div>                    
+               <div class="row pt-3">
+                    <div class="col-lg-4 col-md-8 col-sm-6 float-left">
+                        <h6 class="copyright text-white">Copyright &copy;2023 / Tous droits réservés. </h6>
+                    </div>
+                    <div class="col-lg-8 col-md-4 col-sm-6 float-lg-right">
+                        <div class="foot_menu">
+                            <ul>
+                            <a href="" class="text-white p-2" target="_self">Politique de confidentialité</a>
+                            <a href="" class="text-white p-2" target="_self">Paiement sécurisé</a> 
+                            <a href="index.php?entite=mentions?action=" class="text-white p-2" target="_self">Mentions légales</a> 
+                            </ul>
+                        </div>
+                    </div>
+                </div>  
+        </div>       
+    </footer>
+    {% block footer %}{% endblock %}
+</html>

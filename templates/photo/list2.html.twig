@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row flex">
+        {% for photo in photos %}
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src=" {{ vich_uploader_asset(photo,'imageFile') }}"
+                 alt="img defaut">
+                <div class="card-boby">
+                    <h5 class="card-title"><a href="{{ path('photo.show', {id: photo.id}) }}">{{ photo.title }}</a></h5>
+                    <h5>Postée par : {{ photo.user.pseudo }}</h5>
+                    <p class="card-text">Postée le : {{ photo.postAt }}</p>
+                    <div class="text-primary" style="font-weight: bold; font-size:
+                    1.2rem;">commentaires : 0</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

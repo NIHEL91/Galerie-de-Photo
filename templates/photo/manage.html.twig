@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+        {{message}}
+        </div>
+    {% endfor %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+        <table class="table table-striped">
+            <tr>
+                <th>Titre</th>
+                <th>Date</th>
+                <th>commentaires </th>
+                <th></th>
+            </tr>
+            {% for photo in photos %}
+                <tr id="{{'tr' ~ photo.id }}">
+               
+                    <td>{{ photo.title }}</td>
+                    <td>{{ photo.postAt }}</td>
+                    <td>commentaires : {{ photo.comments|length }}</td>
+                    <td>
+                   <a href="{{ path("photo.delete", {id: photo.id}) }}" data-delete  class="btn btn-secondary">
+								Supprimer</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="col-4">
+        <a href="{{ path("photo.new") }}" class="btn btn-primary">Ajouter une photo</a>
+    </div>
+</div>
+</div>
+<script>
+links = document.querySelectorAll('[data-delete]');
+console.log(links);
+
+for (let link of links) {
+    link.addEventListener('click' , function (ev)){
+        ev.preventDefault();
+        console.log(this.gettAttribute('href'));
+        fetch
+    }
+}
+</script>
+{% endblock %}

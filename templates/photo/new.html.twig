@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+    {% block stylesheets %}
+    <style>
+        form {
+              margin-left: 20%;
+              width: 50%;
+        }
+    </style>
+    {% endblock %}
+
+    {% block body %}
+        <div class=" form border border-1 bg-white  pt-4 pb-4">
+            {{ form_start(newForm) }}
+                <div class="row">
+                    <div class="col-md">{{ form_row(newForm.title) }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md">{{ form_row(newForm.imageFile) }}</div>
+                </div>
+                <button class="btn btn-primary">Enregistrer</button>
+        {{ form_end(newForm) }}
+        </div>
+        <img src="../../images/self.png" class="position-absolute bottom-0 end-0" alt="..."style="height: 500px;
+{% endblock %}

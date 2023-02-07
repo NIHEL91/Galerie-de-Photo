@@ -1,0 +1,95 @@
+
+h1  {
+    font-family : 'Dancing Script', cursive ;
+    color: rgb(231, 202, 12);
+}
+h4 {
+    font-family : 'Dancing Script', cursive ;
+    color: rgb(18, 18, 18);
+}
+
+li {
+    font-family : 'Dancing Script', cursive ;
+    color: rgb(47, 128, 0);
+}
+h5 {
+    font-family : 'Dancing Script', cursive ;
+    color: rgb(13, 14, 13);
+}
+h3  {
+    font-family : 'Dancing Script', cursive ;
+    color: rgb(18, 18, 18);
+}
+
+h2 {
+    font-family : 'Dancing Script', cursive ;
+    color: rgb(244, 241, 241);
+}
+form {
+      margin-left: 20%;
+      width: 50%;
+      
+}
+body { 
+    min-height: 75rem;
+    padding-top: 4.5rem;
+}
+@font-face {
+    font-family: "DancingScript-Bold.ttf";
+    src: url('https://fonts.googleapis.com/css2? family= Dancing+Script & display=swap');
+}
+
+
+.image {
+    opacity: 0.8;
+}
+body {
+    background-image: url(../../images/backgroun2.jpg);
+    
+    
+}
+.container { display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+ 
+ .img {
+    height: 80px;
+    width: 150px;
+ }
+ 
+  .circle { 
+    display:inline-block;
+    text-align:center;
+    margin-top: 100px;
+  }
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.416);
+  }
+  p {
+    color: black;
+  }
+
+  .table {
+    background-color: rgba(0, 0, 0, 0.651);
+    width: 300px,auto;
+    height: 200px;
+    color:aliceblue;
+    margin-left: 300px;
+
+  }
+  .form {
+    width: 500px;
+    height: 300px;
+    margin-left: 700px;
+    margin-top: 200px;
+    margin-right: 500px;
+
+  }
+  .container-fluid {
+    margin-top: 200px;
+  }
+  footer {
+    margin-top: 300px;
+  }
+  

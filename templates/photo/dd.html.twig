@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+		
+			<div class="affichage ">
+					<div class="imag ">
+						<img src="{{ vich_uploader_asset(photo, 'imageFile')  }}" alt="card-img-top">
+					</div>
+					<div class="info ">
+						<h3>{{ photo.title }}</h3>
+						<h3>Postée le :
+							{{ photo.postAt|date("d/m/Y") }}</h3>
+						<div class="text-primary" style="font-weight: bold; font-size: 1.3rem">
+							<p><h3>Par :
+								{{ photo.user.pseudo }}</h3></p>
+					
+					
+					
+						{% if app.user %}
+							<div class="comment">
+								{{ form_start(form) }}
+									<div class="texterea">
+										 {{ form_row(form.content) }}
+									</div>
+									<div class="bouton">
+										<button>Envoyer</button>
+									</div>
+								{{ form_end(form) }}
+							</div>
+						{% endif %}				
+					
+					</div>
+					
+		
+	
+	
+		
+			<div class="table">
+				<table>
+					<tr><th>Commentaires</th></tr>
+					<tr>
+						<th>Commentée par</th>
+						<th>Date</th>
+						<th>Commentaire</th>
+					</tr>
+					{% for comment in photo.comments %}
+					<tr>
+						<td>{{ comment.user.pseudo }}</td>
+						<td>{{ comment.createAtDatetime|date("d/m/Y") }}</td>
+						<td>{{ comment.content }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		
+
+
+{% endblock %}
